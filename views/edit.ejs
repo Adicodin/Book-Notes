@@ -1,0 +1,59 @@
+<%- include('partials/header.ejs'); -%>
+
+  <!-- <div class="container" id="heading"> -->
+    <!-- <div class="row"> -->
+      <h1 class="p-3" style="background-color: #a683e3;
+      text-align: center;">
+        <a href="/" style="text-decoration-line: none; color: white;">
+          Book Notes
+        </a>
+      </h1>
+    <!-- </div> -->
+    
+  </div>
+  <div class="container m-3 p-3">
+    <form action="/edit" method="post">
+      <input type="hidden" value="<%= (locals).book_id %>" name="book_id">
+      <div class="mb-3 row">
+        <label for="book_name" class="col-sm-6 col-form-label fs-4 fw-medium border">Book Name</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control border" name="book_name" id="book_name" value="<%= (locals).book_name %>">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="author_name" class="col-sm-6 col-form-label fs-4 fw-medium border">Author Name</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control border" name="author_name" id="author_name" value="<%= (locals).author_name %>">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="isbn_number" class="col-sm-6 col-form-label fs-4 fw-medium border">ISBN Number</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control border" name="isbn_number" id="isbn_number" value="<%= (locals).isbn_number %>">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="rating" class="col-sm-6 col-form-label fs-4 fw-medium border">Rating (Best : 10 | Worst : 1)</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control border" name="rating" id="rating" value="<%= (locals).rating %>">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="summary" class="col-sm-6 col-form-label fs-4 fw-medium border">Summary</label>
+        <div class="col-sm-6">
+          <textarea type="text" class="form-control border" id="summary" name="summary" rows="3"><%= (locals).summary %></textarea>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="notes" class="col-sm-6 col-form-label fs-4 fw-medium border">Notes</label>
+        <div class="col-sm-6">
+          <textarea type="text" class="form-control border" id="notes" name="notes" rows="10"><%= (locals).notes %></textarea>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <button class="btn btn-warning" type="submit">Edit Book</button>
+      </div>
+    </form>
+  </div>
+<%- include('partials/footer.ejs'); -%>
+

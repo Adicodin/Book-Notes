@@ -1,0 +1,63 @@
+<%- include('partials/header.ejs'); -%>
+
+  <!-- <div class="container" id="heading"> -->
+    <!-- <div class="row"> -->
+      <h1 class="heading p-3">
+        <a href="/">
+          <%= Title %>
+        </a>
+      </h1>
+    <!-- </div> -->
+    
+  </div>
+  <div class="container m-3 p-3">
+      <div class="row border-bottom m-3 p-3">
+        <div class="col">
+          <p class="m-3">
+            <img src="<%= api_url %><%= isbn_number %>-M.jpg">
+          </p>
+        </div>
+        
+        <div class="col text-start p-4">
+          <h3 class="fw-bolder">
+            <%= book_name %> - By <%= author_name %>
+          </h3>
+          <p class="fw-medium mt-2">
+            Date Read: <%= date_read.getFullYear() %>-<%= date_read.getMonth() %>-<%= date_read.getDate() %>
+          </p>
+          <p class="fw-medium">
+            ISBN: <%= isbn_number %>
+          </p>
+          <p class="fw-medium">
+            Rating: <%= rating %>/10
+          </p>
+        </div>
+        <div class="d-flex flex-row-reverse">
+          <form action="/delete" method="post">
+            <input type="hidden" name="del_item" value="<%= isbn_number %>">
+            <button class="btn btn-danger btn-lg" type="submit">Delete</button>
+          </form>
+          <a href="/<%= book_id %>/edit">
+            <button class="btn btn-warning btn-lg">Edit</button>
+            <!-- Edit -->
+          </a>
+        </div>
+      </div>
+  </div>
+    <div class="row border-bottom mx-5">
+      <div class="col text-start mx-5">
+        <h4>Summary</h4>
+        <p>
+          <%= summary %>
+        </p>
+        <br><hr><br>
+        <h4>My Notes</h4>
+        <% for(let note of notes) { %>
+          <p><%= note %> <br> </p>
+        <% } %>
+        <p><a href="/">
+          Go Back
+        </a></p>
+      </div>
+  </div>
+  <%- include('partials/footer.ejs'); -%>

@@ -1,0 +1,47 @@
+<%- include('partials/header.ejs'); -%>
+
+  <!-- <div class="container" id="heading"> -->
+    <!-- <div class="row"> -->
+      <h1 class="heading p-3">
+        <%= Title %>
+      </h1>
+    <!-- </div> -->
+    
+  </div>
+  <div class="container m-3 p-3">
+    <div class="row mb-3">
+      <form action="/" method="post" class="col border-bottom pb-3">
+        <button class="btn fw-medium fs-2">Sort By</button>
+        <button class="btn btn-outline-primary m-3" type="submit" name="sort_option" value="title_option">Title</button>
+        <button class="btn btn-outline-primary m-3" type="submit" name="sort_option" value="newest_option">Newest</button>
+        <button class="btn btn-outline-primary m-3" type="submit" name="sort_option" value="best_option">Best</button>
+        <button class="btn fw-medium fs-2 ms-5 ps-5">New Book</button>
+        <a class="border border-success rounded p-3 mx-3 bg-success" href="add-book" style="text-decoration: none; color: white;">Add Book</a>
+      </form>
+    </div>
+    <% for(let item of Books){%>
+      <div class="row border-bottom m-3 p-3">
+        <div class="col">
+          <p id="cover<%=item.id%>" class="m-3">
+            <img src="<%= api_url %><%= item.isbn_number %>-M.jpg">
+          </p>
+        </div>
+        
+        <div class="col text-start">
+          <h3 id="book_name<%=item.id%>" class="fw-bolder">
+            <%= item.book_name %> - By <%= item.author_name %>
+          </h3>
+          <p id="date<%=item.id%>" class="fw-medium">
+            Date Read: <%= item.date_read.getFullYear() %>-<%= item.date_read.getMonth() %>-<%= item.date_read.getDate() %>
+          </p>
+          <p id="summary<%=item.id%>">
+            <%= item.summary %></p>
+          <p><a id="notes_link<%=item.id%>" href="/<%=item.id%>">
+            Read Notes
+          </a></p>
+        </div>
+      </div>
+      <% } %>
+  </div>
+
+  <%- include('partials/footer.ejs'); -%>
