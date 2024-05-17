@@ -1,3 +1,9 @@
+create database book_db;
+
+use book_db;
+
+drop table if exists books;
+
 create table books (
 	id serial primary key,
 	book_name varchar(100) not null,
@@ -6,7 +12,7 @@ create table books (
 	summary text not null,
 	notes text not null,
 	isbn_number varchar(100)
-)
+);
 
 INSERT INTO books (book_name, author_name, summary, notes, isbn_number) VALUES 
 (
