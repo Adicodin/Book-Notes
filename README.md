@@ -1,4 +1,4 @@
-# Book-Notes-Capstone-Project
+# Book-Notes
 This is a project for maintaining a personalized book notes web app. Here, one can store their book notes, rate them and sort them by different options to maintain and easily access their book notes.
 <br>
 This is inspired by Derek Sivers' Site for book notes - https://sive.rs/book. This is a capstone project for the UDEMY Web Development Course. It uses Open Library Covers API to fetch the cover images of books shown in the web app - https://openlibrary.org/dev/docs/api/covers.
